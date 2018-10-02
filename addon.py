@@ -68,18 +68,18 @@ elif current_level[0] == 'Folder':
 
     xbmcplugin.endOfDirectory(addon_handle)
 elif current_level[0] == 'Movie':
-    xbmc.log("------------------ Inside Movie -------------", level=xbmc.LOGNOTICE)
+    # xbmc.log("------------------ Inside Movie -------------", level=xbmc.LOGNOTICE)
     my_current_movieURL = current_movie[0]
-    xbmc.log("Current Movie URL: " + my_current_movieURL, level=xbmc.LOGNOTICE)
+    # xbmc.log("Current Movie URL: " + my_current_movieURL, level=xbmc.LOGNOTICE)
     inputHTML = str(requests.get(my_current_movieURL).text)
     _start = inputHTML.find('<iframe')
     _end = inputHTML.rfind('/iframe>')
     inputHTML = inputHTML[_start:_end]
-    xbmc.log("Movie content : " + inputHTML, level=xbmc.LOGNOTICE)
+    # xbmc.log("Movie content : " + inputHTML, level=xbmc.LOGNOTICE)
 
-    xbmc.log(inputHTML, level=xbmc.LOGNOTICE)
+    # xbmc.log(inputHTML, level=xbmc.LOGNOTICE)
     videoList = resolveurl.scrape_supported(inputHTML, regex= '''=\s*['"]([^'"]+)''')
-    xbmc.log(str(videoList), level=xbmc.LOGNOTICE)
+    # xbmc.log(str(videoList), level=xbmc.LOGNOTICE)
 
     for video in videoList:
         playableURL = resolveurl.resolve(video)
