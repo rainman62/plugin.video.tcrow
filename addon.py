@@ -24,7 +24,8 @@ def getMoviesFromPage(url):
     return returnValue
 
 SERVER_BASE_URL = "http://tamilimac.net/"
-CATEGORIES = {'hd': "category/movies/tamil-hd-movies/"}
+CATEGORIES = {'hd': "category/movies/tamil-hd-movies/",
+              'new-movies': 'category/movies/tamil-new-movies/'}
 
 base_url = sys.argv[0]
 addon_handle = int(sys.argv[1])
